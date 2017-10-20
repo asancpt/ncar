@@ -21,3 +21,5 @@ Repository: CRAN
 URL: https://cran.r-project.org/package=ncar
 Packaged: 2017-08-16 01:23:17 UTC; K
 Date/Publication: 2017-08-16 03:27:13 UTC
+Authors@R: person('Kyun-Seop', 'Bae', email = 'k@acr.kr', role = c('aut'))
+
