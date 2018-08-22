@@ -5,7 +5,7 @@
 \usage{
 pdfNCA(fileName = "Temp-NCA.pdf", concData, colSubj = "Subject", colTime = "Time", 
        colConc = "conc", dose = 0, adm = "Extravascular", dur = 0, doseUnit = "mg", 
-       timeUnit = "h", concUnit = "ug/L", down="Linear", MW = 0)
+       timeUnit = "h", concUnit = "ug/L", down="Linear", R2ADJ = 0, MW = 0)
 }
 \arguments{
   \item{fileName}{file name to save}
@@ -20,6 +20,7 @@ pdfNCA(fileName = "Temp-NCA.pdf", concData, colSubj = "Subject", colTime = "Time
   \item{timeUnit}{unit of time}
   \item{concUnit}{unit of concentration}
   \item{down}{either of \code{"Linear"} or \code{"Log"} to indicate the way to calculate AUC and AUMC}
+  \item{R2ADJ}{Minimum adjusted R-square value to determine terminal slope automatically}
   \item{MW}{molecular weight of drug}
 }
 \value{

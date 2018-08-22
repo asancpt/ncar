@@ -1,4 +1,4 @@
-rtfNCA = function(fileName="Temp-NCA.rtf", concData, colSubj="Subject", colTime="Time", colConc="conc", dose=0, adm="Extravascular", dur=0, doseUnit="mg", timeUnit="h", concUnit="ug/L", down="Linear", MW=0) 
+rtfNCA = function(fileName="Temp-NCA.rtf", concData, colSubj="Subject", colTime="Time", colConc="conc", dose=0, adm="Extravascular", dur=0, doseUnit="mg", timeUnit="h", concUnit="ug/L", down="Linear", R2ADJ=0, MW=0) 
 {
 #  require(rtf)
   rtf = RTF(fileName)
@@ -19,13 +19,13 @@ rtfNCA = function(fileName="Temp-NCA.rtf", concData, colSubj="Subject", colTime=
     cID = IDs[i]
     x = concData[concData[,colSubj]==cID, colTime]
     y = concData[concData[,colSubj]==cID, colConc]
-    tabRes = sNCA(x, y, dose=dose, adm=adm, dur=dur, doseUnit=doseUnit, timeUnit=timeUnit, concUnit=concUnit, down=down, MW=MW)
-    tRes = txtNCA(x, y, dose=dose, adm=adm, dur=dur, doseUnit=doseUnit, timeUnit=timeUnit, concUnit=concUnit, down=down, MW=MW) 
-    Res = c(Res, tRes)
+    tabRes = sNCA(x, y, dose=dose, adm=adm, dur=dur, doseUnit=doseUnit, timeUnit=timeUnit, concUnit=concUnit, down=down, R2ADJ=R2ADJ, MW=MW)
+    txtRes = Res2Txt(tabRes, x, y, dose=dose, adm=adm, dur=dur, doseUnit=doseUnit, down=down)
+    Res = c(Res, txtRes)
 
     addPageBreak(rtf)
     addHeader(rtf, paste("Subject ID =", cID), TOC.level=1)
-    for (j in 1:length(tRes)) addParagraph(rtf, tRes[j])
+    for (j in 1:length(txtRes)) addParagraph(rtf, txtRes[j])
 
     addPageBreak(rtf)
     addHeader(rtf, paste("Subject ID =", cID))

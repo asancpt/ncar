@@ -1,4 +1,4 @@
-pdfNCA = function(fileName="Temp-NCA.pdf", concData, colSubj="Subject", colTime="Time", colConc="conc", dose=0, adm="Extravascular", dur=0, doseUnit="mg", timeUnit="h", concUnit="ug/L", down="Linear", MW=0) 
+pdfNCA = function(fileName="Temp-NCA.pdf", concData, colSubj="Subject", colTime="Time", colConc="conc", dose=0, adm="Extravascular", dur=0, doseUnit="mg", timeUnit="h", concUnit="ug/L", down="Linear", R2ADJ=0, MW=0) 
 {
   defPar = par(no.readonly=TRUE)
 #  dev.off()
@@ -18,12 +18,13 @@ pdfNCA = function(fileName="Temp-NCA.pdf", concData, colSubj="Subject", colTime=
     cID = IDs[i]
     x = concData[concData[,colSubj]==cID, colTime]
     y = concData[concData[,colSubj]==cID, colConc]
-    tabRes = sNCA(x, y, dose=dose, adm=adm, dur=dur, doseUnit=doseUnit, timeUnit=timeUnit, concUnit=concUnit, down=down, MW=MW)
-    tRes = txtNCA(x, y, dose=dose, adm=adm, dur=dur, doseUnit=doseUnit, timeUnit=timeUnit, concUnit=concUnit, down=down, MW=MW)
-    Res = c(Res, tRes)
+    tabRes = sNCA(x, y, dose=dose, adm=adm, dur=dur, doseUnit=doseUnit, timeUnit=timeUnit, concUnit=concUnit, down=down, R2ADJ=R2ADJ, MW=MW)
+    UsedPoints = attr(tabRes, "UsedPoints")
+    txtRes = Res2Txt(tabRes, x, y, dose=dose, adm=adm, dur=dur, doseUnit=doseUnit, down=down)
+    Res = c(Res, txtRes)
 
     AddPage(Header1=paste("Subject ID =", cID))
-    TextM(tRes, StartRow=1, Header1=paste("Subject ID =", cID))
+    TextM(txtRes, StartRow=1, Header1=paste("Subject ID =", cID))
 
     scrnmat = matrix(0, 3, 4)
     scrnmat[1,] = c(0, 1, 0, 1)
@@ -44,6 +45,7 @@ pdfNCA = function(fileName="Temp-NCA.pdf", concData, colSubj="Subject", colTime=
     x0 = x[y > 0]
     y0 = y[y > 0]
     plot(x0, log10(y0), type="b", cex=0.7, xlim=c(0, maxx), ylim=c(log10(miny), log10(maxy)), yaxt="n", xlab=paste0("Time (", timeUnit, ")"), ylab=paste0("Concentration (log interval) (", concUnit, ")"))
+    points(x[UsedPoints], log10(y[UsedPoints]), pch=16)
     yticks = seq(round(min(log10(y0))), ceiling(max(log10(y0))))
     ylabels = sapply(yticks, function(i) as.expression(bquote(10^ .(i))))
     axis(2, at=yticks, labels=ylabels)

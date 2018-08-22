@@ -1,5 +1,20 @@
 \name{NEWS}
 \title{News for Package \pkg{ncar}}
+\section{Changes in version 0.4.0 (2018-06-20)}{
+  \itemize{
+    \item{Deprecated option in \code{Sys.timezone()}. is removed.}
+  }
+}
+\section{Changes in version 0.3.9 (2018-05-10)}{
+  \itemize{
+    \item{Calling twice for terminal slope is corrected.}
+  }
+}
+\section{Changes in version 0.3.8 (2018-04-10)}{
+  \itemize{
+    \item{Errata in manual corrected.}
+  }
+}
 \section{Changes in version 0.3.7 (2017-08-16)}{
   \itemize{
     \item{\pkg{ncar} to be compatible with NonCompart_0.3.3.}

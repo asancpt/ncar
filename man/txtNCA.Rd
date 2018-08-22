@@ -4,7 +4,7 @@
 \description{This is the text form output.}
 \usage{
 txtNCA(x, y, dose = 0, adm = "Extravascular", dur = 0, doseUnit = "mg", timeUnit = "h", 
-       concUnit = "ug/L", iAUC = "", down="Linear", MW = 0)
+       concUnit = "ug/L", iAUC = "", down="Linear", R2ADJ=0, MW = 0)
 }
 \arguments{
   \item{x}{usually time}
@@ -17,6 +17,7 @@ txtNCA(x, y, dose = 0, adm = "Extravascular", dur = 0, doseUnit = "mg", timeUnit
   \item{concUnit}{unit of concentration}
   \item{iAUC}{interval AUCs to calculate}
   \item{down}{either of \code{"Linear"} or \code{"Log"} to indicate the way to calculate AUC and AUMC}
+  \item{R2ADJ}{Minimum adjusted R-square value to determine terminal slope automatically}
   \item{MW}{molecular weight of the drug}
 }
 \value{

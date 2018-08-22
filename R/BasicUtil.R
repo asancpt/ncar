@@ -59,9 +59,11 @@ TextM = function(MTxt, StartRow=0, Cex=0.8, Header1="", Header2="", Header3="", 
 
 Plot4rtf = function(x, y, type, cex, xlim, ylim, xlab, ylab, tabRes)
 {
+  UsedPoints = attr(tabRes, "UsedPoints")
   x0 = x[y > 0]
   y0 = y[y > 0]  
   plot(x0, log10(y0), type=type, cex=cex, xlim=xlim, ylim=log10(ylim), yaxt="n", xlab=xlab, ylab=ylab)
+  points(x[UsedPoints], log10(y[UsedPoints]), pch=16)
   yticks = seq(round(log10(ylim[1])), ceiling(log10(ylim[2])))
   ylabels = sapply(yticks, function(i) as.expression(bquote(10^ .(i))))
   axis(2, at=yticks, labels=ylabels)
