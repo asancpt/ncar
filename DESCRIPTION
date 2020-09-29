@@ -1,16 +1,16 @@
 Package: ncar
-Version: 0.4.0
-Date: 2018-06-20 KST
+Version: 0.4.2
+Date: 2019-09-27 KST
 Title: Noncompartmental Analysis for Pharmacokinetic Report
-Description: Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. 'Phoenix(R) WinNonlin(R)' <https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/>.
+Description: Conduct a noncompartmental analysis with industrial strength.
              Some features are
              1) CDISC SDTM terms
-             2) Automatic slope selection with the same criterion of WinNonlin(R)
+             2) Automatic or manual slope selection
              3) Supporting both 'linear-up linear-down' and 'linear-up log-down' method
              4) Interval(partial) AUCs with 'linear' or 'log' interpolation method
              5) Produce pdf, rtf, text report files.
              * Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (ISBN:9198299107).
-Depends: R (>= 2.0.0), rtf, NonCompart (>= 0.3.3)
+Depends: rtf, NonCompart (>= 0.3.3)
 Author: Kyun-Seop Bae [aut]
 Maintainer: Kyun-Seop Bae <k@acr.kr>
 Copyright: 2016-, Kyun-Seop Bae
@@ -19,7 +19,7 @@ NeedsCompilation: no
 LazyLoad: yes
 Repository: CRAN
 URL: https://cran.r-project.org/package=ncar
-Packaged: 2018-06-20 01:07:13 UTC; Kyun-SeopBae
-Date/Publication: 2018-06-20 04:32:57 UTC
+Packaged: 2019-09-27 13:37:33 UTC; K
+Date/Publication: 2019-09-27 14:00:02 UTC
 Authors@R: person('Kyun-Seop', 'Bae', email = 'k@acr.kr', role = c('aut'))
 RoxygenNote: 6.1.0

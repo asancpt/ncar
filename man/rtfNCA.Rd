@@ -3,14 +3,14 @@
 \title{NCA output to rtf file}
 \description{This output NCA result in a rtf file.}
 \usage{
-rtfNCA(fileName = "Temp-NCA.rtf", concData, colSubj = "Subject", colTime = "Time", 
+rtfNCA(fileName = "Temp-NCA.rtf", concData, key = "Subject", colTime = "Time", 
        colConc = "conc", dose = 0, adm = "Extravascular", dur = 0, doseUnit = "mg", 
        timeUnit = "h", concUnit = "ug/L", down="Linear", R2ADJ = 0, MW = 0)
 }
 \arguments{
   \item{fileName}{file name to save}
   \item{concData}{concentration data table}
-  \item{colSubj}{column name for subject ID}
+  \item{key}{column names of concData to be shown in the output}
   \item{colTime}{column name for time}
   \item{colConc}{column name for concentration}
   \item{dose}{administered dose}
@@ -77,9 +77,11 @@ rtfNCA(fileName = "Temp-NCA.rtf", concData, colSubj = "Subject", colTime = "Time
 \code{\link{help}}, \code{\link{txtNCA}}, \code{\link{pdfNCA}} 
 }
 \examples{
-#rtfNCA(fileName="NCA-Theoph.rtf", Theoph, colSubj="Subject", colTime="Time", 
+#rtfNCA(fileName="NCA-Theoph.rtf", Theoph, key="Subject", colTime="Time", 
 #       colConc="conc", dose=320, doseUnit="mg", timeUnit="h", concUnit="mg/L")
-#rtfNCA(fileName="NCA-Indometh.rtf", Indometh, colSubj="Subject", colTime="time", 
+#rtfNCA(fileName="NCA-Theoph.rtf", Theoph, key=c("Subject", "Wt"), colTime="Time",
+#       colConc="conc", dose=320, doseUnit="mg", timeUnit="h", concUnit="mg/L")
+#rtfNCA(fileName="NCA-Indometh.rtf", Indometh, key="Subject", colTime="time", 
 #       colConc="conc", adm="Infusion", dur=0.5, dose=25, doseUnit="mg", 
 #       timeUnit="h", concUnit="mg/L")
 }

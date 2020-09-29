@@ -1,5 +1,15 @@
 \name{NEWS}
 \title{News for Package \pkg{ncar}}
+\section{Changes in version 0.4.2 (2018-09-27)}{
+  \itemize{
+    \item{Some sentences are revised.}
+  }
+}
+\section{Changes in version 0.4.1 (2018-07-20)}{
+  \itemize{
+    \item{Argument \code{key} replaced \code{key} in \code{rtfNCA} and \code{pdfNCA} function.}
+  }
+}
 \section{Changes in version 0.4.0 (2018-06-20)}{
   \itemize{
     \item{Deprecated option in \code{Sys.timezone()}. is removed.}
