@@ -66,14 +66,64 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-Conduct a noncompartmental analysis with industrial strength.
-             Some features are
-             1) CDISC SDTM terms
-             2) Automatic or manual slope selection
-             3) Supporting both 'linear-up linear-down' and 'linear-up log-down' method
-             4) Interval(partial) AUCs with 'linear' or 'log' interpolation method
-             5) Produce pdf, rtf, text report files.
-             * Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (ISBN:9198299107).
+<div id="ncar-package-noncompartmental-analysis-for-pharmacokinetic-report" class="section level1">
+<div class="page-header"><h1 class="hasAnchor">
+<a href="#ncar-package-noncompartmental-analysis-for-pharmacokinetic-report" class="anchor"></a><code>ncar-package</code>: Noncompartmental Analysis for Pharmacokinetic Report</h1></div>
+<div id="description" class="section level2">
+<h2 class="hasAnchor">
+<a href="#description" class="anchor"></a>Description</h2>
+<p>It can report a noncompartmental analysis (NCA) with industrial strength.</p>
+</div>
+<div id="details" class="section level2">
+<h2 class="hasAnchor">
+<a href="#details" class="anchor"></a>Details</h2>
+<p>The main functions are</p>
+<ul>
+<li>pdfNCA to produce PDF file format NCA.</li>
+<li>rtfNCA to produce rtf file format NCA.</li>
+</ul>
+</div>
+<div id="author" class="section level2">
+<h2 class="hasAnchor">
+<a href="#author" class="anchor"></a>Author</h2>
+<p>Kyun-Seop Bae <a href="mailto:k@acr.kr" class="email">k@acr.kr</a></p>
+</div>
+<div id="references" class="section level2">
+<h2 class="hasAnchor">
+<a href="#references" class="anchor"></a>References</h2>
+<ul>
+<li><p>Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016.</p></li>
+<li><p>Shargel L, Yu A. Applied Biopharmaceutics and Pharmacokinetics. 7th ed. 2015.</p></li>
+<li><p>Rowland M, Tozer TN. Clinical Pharmacokinetics and Pharmacodynamics - Concepts and Applications. 4th ed. 2011.</p></li>
+<li><p>Gibaldi M, Perrier D. Pharmacokinetics. 2nd ed. revised and expanded. 1982.</p></li>
+</ul>
+</div>
+<div id="examples" class="section level2">
+<h2 class="hasAnchor">
+<a href="#examples" class="anchor"></a>Examples</h2>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+ <span class="co"># Theoph and Indometh data: dose in mg, conc in mg/L, time in h</span>
+ 
+ <span class="co"># Output to PDF file</span>
+ <span class="co">#pdfNCA(fileName="NCA-Theoph.pdf", Theoph, key="Subject", colTime="Time",</span>
+ <span class="co">#       colConc="conc", dose=320, doseUnit="mg", timeUnit="h", concUnit="mg/L")</span>
+ <span class="co">#pdfNCA(fileName="NCA-Theoph.pdf", Theoph, key=c("Subject", "Wt"), colTime="Time",</span>
+ <span class="co">#       colConc="conc", dose=320, doseUnit="mg", timeUnit="h", concUnit="mg/L")</span>
+ <span class="co">#pdfNCA(fileName="NCA-Indometh.pdf", Indometh, key="Subject", colTime="time",</span>
+ <span class="co">#       colConc="conc", adm="Infusion", dur=0.5, dose=25, doseUnit="mg",</span>
+ <span class="co">#       timeUnit="h", concUnit="mg/L")</span>
+ 
+ 
+ <span class="co"># Output to RTF file</span>
+ <span class="co">#rtfNCA(fileName="NCA-Theoph.rtf", Theoph, key="Subject", colTime="Time",</span>
+ <span class="co">#       colConc="conc", dose=320, doseUnit="mg", timeUnit="h", concUnit="mg/L")</span>
+ <span class="co">#rtfNCA(fileName="NCA-Theoph.rtf", Theoph, key=c("Subject", "Wt"), colTime="Time",</span>
+ <span class="co">#       colConc="conc", dose=320, doseUnit="mg", timeUnit="h", concUnit="mg/L")</span>
+ <span class="co">#rtfNCA(fileName="NCA-Indometh.rtf", Indometh, key="Subject", colTime="time",</span>
+ <span class="co">#       colConc="conc", adm="Infusion", dur=0.5, dose=25, doseUnit="mg",</span>
+ <span class="co">#       timeUnit="h", concUnit="mg/L")</span></pre></div>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
